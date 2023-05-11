@@ -161,11 +161,6 @@ public class Qes1_13 {
 	// コンソールに出力する
 		System.out.println(result);
 		
-		int a7 = 10;
-		int b7 = 10;
-		
-		System.out.println(++a7 + 50);
-		System.out.println(b7++ + 50);
 	}
 
 }
