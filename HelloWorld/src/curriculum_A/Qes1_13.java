@@ -24,7 +24,7 @@ public class Qes1_13 {
 		by = 0;
 		sh = 0;
 		i = 0;
-		lo = 0;
+		lo = 0L;
 		f = 0.0f;
 		d = 0.0d;
 		c = '\u0000';
@@ -36,7 +36,7 @@ public class Qes1_13 {
 		by = 10;
 		sh = 100;
 		i = 1000;
-		lo = 10000;
+		lo = 10000L;
 		f = 9.5f;
 		d = 10.5d;
 		c = 'a';
@@ -47,11 +47,13 @@ public class Qes1_13 {
 	// 問題4 コンソールに出力する
 		System.out.println(by+sh+i+lo);
 		System.out.println(by+by);
-		System.out.println(c+str+b);
+		System.out.println(c+"\t"+str+"\t"+b);
 		System.out.println(by+sh+i+lo+f+d);
 		System.out.println(by*sh*i*lo);
 		System.out.println(d/sh);
 		System.out.println(by-sh);
+		
+		System.out.println( );
 		
 		
 	// 問題5 ハローJAVA2023ではなく、ハローJAVA43と表示する
@@ -60,6 +62,8 @@ public class Qes1_13 {
 		byte num1 = 23;
 	// コンソールに出力する
 		System.out.println("ハローJAVA"+(num+num1));
+		
+		System.out.println( );
 		
 		
 	// 問題6 formatの通りコンソールに出力する
@@ -77,6 +81,8 @@ public class Qes1_13 {
 		System.out.println("体重は"+weight+"kgです");
 		System.out.println("好きな食べ物は"+food+"です");
 		
+		System.out.println( );
+		
 		
 	// 問題7 山田太郎のBMIを計算し、コンソールに出力する
 		double BMI = (weight/(height*height))*10000;
@@ -84,6 +90,8 @@ public class Qes1_13 {
 		
 		// 小数第一位までを表示する
 		System.out.println("BMIは"+String.format("%.1f",BMI)+"です");
+		
+		System.out.println( );
 		
 		
 	// 問題8 変数に再代入する
@@ -102,6 +110,8 @@ public class Qes1_13 {
 		System.out.println("好きな食べ物は"+food+"です");
 		System.out.println("BMIは"+String.format("%.1f",BMI)+"です");
 		
+		System.out.println( );
+		
 		
 	// 問題9 年齢・身長・体重の数値を和算で自己代入する
 		age += 24;
@@ -118,6 +128,8 @@ public class Qes1_13 {
 		// BMIは小数第二位までを表示する
 		System.out.println("BMIは"+String.format("%.2f",BMI)+"です");
 		
+		System.out.println( );
+		
 		
 	// 問題10 年齢が25歳以上ならtrueを出力する(if文は使わない)
 	// 値を代入する
@@ -126,6 +138,8 @@ public class Qes1_13 {
 		String str2;
 		str2 = age >= 25? "true" : "false";
 		System.out.println(str2);
+		
+		System.out.println( );
 		
 		
 	// 問題11 問題8の年齢・身長・体重を文字列型に型変換する
@@ -142,15 +156,20 @@ public class Qes1_13 {
 		// コンソールに出力する
 		System.out.println(str3+str4+str5);
 		
+		System.out.println( );
+		
 		
 	// 問題12 問題11の年齢・身長を整数型に変換する
 		// 型変換する
 		int i1 = Integer.parseInt(str3);
-		double i2 = Double.parseDouble(str4);
+		double d2 = Double.parseDouble(str4);
+		int i2 = (int)d2;
 		
 		// コンソールに出力する
 		System.out.println(i1);
 		System.out.println(i2);
+		
+		System.out.println( );
 		
 		
 	// 問題13 問題12の年齢・身長が25歳もしくは160以上であればtrueを出力する(if文を使わない)
@@ -160,6 +179,8 @@ public class Qes1_13 {
 		result = i1 == 25 || i2 >= 160;
 	// コンソールに出力する
 		System.out.println(result);
+		
+		System.out.println( );
 		
 	}
 
