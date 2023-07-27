@@ -21,23 +21,21 @@ public class Qes1_3 {
 		int num;
 		Matcher m;
 		boolean flag;
+		Scanner scanner = new Scanner(System.in);
+		
 		
 		do {
-			flag = true;
 			System.out.println("ユーザー名を入力してください");
-			Scanner scan = new Scanner(System.in);
-			str = scan.next();
+			str = scanner.nextLine();
 			num = str.length();
-        
 			Pattern p = Pattern.compile("^[a-zA-Z0-9]+$");
 			m = p.matcher(str);
-        
-		 
+			
+			
         // nullの場合
 			if(Objects.isNull(str)) {
 				System.out.println("名前を入力してください");
 				flag = false;
-				return;
 			}        
 
 		// 0文字以下の場合
@@ -62,13 +60,13 @@ public class Qes1_3 {
 			else {
 				System.out.println("ユーザー名「"+ str + "」を登録しました");
 				flag = true;
+				break;
 			}
         
 			System.out.println("\n");
 		}
 		// ユーザー名が正常でなければ繰り返す
 		while(flag == false);
-        
         
         
 // 問3 じゃんけんのシステムを下記の条件で作成してください
@@ -110,105 +108,109 @@ public class Qes1_3 {
 // ユーザー名が正常の場合じゃんけんのシステムが起動するようにしてください
 		
 		
-		
 		int userHand;
 		int pcHand;
 		int count = 0;
 		
 		do {
-			flag = true;
 			// コンピューターの手をランダムで決める
 			pcHand = (int)Math.floor( Math.random() * 3 );
-	
-		do {
-			flag = true;
-			System.out.println("何を出しますか？（ 0:グー / 1:チョキ / 2:パー ）:");
-
-			Scanner scanner = new Scanner(System.in);
-
-			String playerHand = scanner.next();
-
-			userHand = Integer.parseInt(playerHand);
+			
+			do {
+				System.out.println("何を出しますか？（ 0:グー / 1:チョキ / 2:パー ）:");
+				String playerHand = scanner.nextLine();
+				userHand = Integer.parseInt(playerHand);
 			
 			// 入力された文字が0,1,2以外の場合
-			if (userHand != 0 && userHand != 1 && userHand != 2) {
-			System.out.println("出した手がおかしいです...");
-			flag = false;
-			
-			System.out.println("\n");
+				if (userHand != 0 && userHand != 1 && userHand != 2) {
+					System.out.println("出した手がおかしいです...");
+					flag = false;
+				}
+				
+				else {
+					flag = true;
+					break;
+				}
+				
+				System.out.println("\n");
 			}
-		}		
-		// 入力がおかしい場合は繰り返す
-		while(flag == false);
-		
-		
-		// ユーザーの手を出力
-		if(userHand == 0) {
-			System.out.println(str + "の手は「グー」");
 			
-	        }else if(userHand == 1) {
-	        	System.out.println(str + "の手は「チョキ」");
+		// 入力がおかしい場合は繰り返す
+			while(flag == false);
+			
+			
+		// ユーザーの手を出力
+			if(userHand == 0) {
+				System.out.println(str + "の手は「グー」");
+			
+				}else if(userHand == 1) {
+					System.out.println(str + "の手は「チョキ」");
 	        	
-	        }else if(userHand == 2) {
-	        	System.out.println(str + "の手は「パー」");
-	        }
+				}else if(userHand == 2) {
+					System.out.println(str + "の手は「パー」");
+				}
 		
 		// コンピューターの手を出力
-		if(pcHand == 0) {
-			System.out.println("相手の手は「グー」");
+			if(pcHand == 0) {
+				System.out.println("相手の手は「グー」");
 			
-			}else if(pcHand == 1) {
-				System.out.println("相手の手は「チョキ」");
+				}else if(pcHand == 1) {
+					System.out.println("相手の手は「チョキ」");
 				
-			}else if(pcHand == 2) {
-				System.out.println("相手の手は「パー」");
-			}
+				}else if(pcHand == 2) {
+					System.out.println("相手の手は「パー」");
+				}
 		
-		System.out.println("\n");
+			System.out.println("\n");
 		
 		// あいこの場合
-		if(userHand == pcHand) {
-			System.out.println("DRAW あいこ もう一回しましょう！");
-			count++;
-			flag = false;
+			if(userHand == pcHand) {
+				System.out.println("DRAW あいこ もう一回しましょう！");
+				count++;
+				flag = false;
 			
 			// ユーザーがグーで負けた場合
-			}else if(userHand == 0 && pcHand == 2) {
-				System.out.println("俺の勝ち！\n"+"負けは次につながるチャンスです！\n"+"ネバーギブアップ！");
-				count++;
-				flag = false;
+				}else if(userHand == 0 && pcHand == 2) {
+					System.out.println("俺の勝ち！\n"+"負けは次につながるチャンスです！\n"+"ネバーギブアップ！");
+					count++;
+					flag = false;
 				
 			// ユーザーがチョキで負けた場合
-			}else if(userHand == 1 && pcHand == 0) {
-				System.out.println("俺の勝ち！\n"+ "たかがじゃんけん、そう思ってないですか？\n"+ "それやったら次も、俺が勝ちますよ");
-				count++;
-				flag = false;
+				}else if(userHand == 1 && pcHand == 0) {
+					System.out.println("俺の勝ち！\n"+ "たかがじゃんけん、そう思ってないですか？\n"+ "それやったら次も、俺が勝ちますよ");
+					count++;
+					flag = false;
 				
 			// ユーザーがパーで負けた場合
-			}else if(userHand == 2 && pcHand == 1) {
-				System.out.println("俺の勝ち！\n"+"なんで負けたか、明日まで考えといてください。\n"+"そしたら何かが見えてくるはずです");
-				count++;
-				flag = false;
+				}else if(userHand == 2 && pcHand == 1) {
+					System.out.println("俺の勝ち！\n"+"なんで負けたか、明日まで考えといてください。\n"+"そしたら何かが見えてくるはずです");
+					count++;
+					flag = false;
 				
 			// ユーザーが勝った場合
-			}else {
-				System.out.println("やるやん。\n"+"次は俺にリベンジさせて");
-				count++;
-				flag = true;
-			}
-		
-		System.out.println("\n");
-		
+				}else {
+					System.out.println("やるやん。\n"+"次は俺にリベンジさせて");
+					count++;
+					flag = true;
+					break;
+				}
+			
+			System.out.println("\n");
 		}
 		
 		// あいこと負けた場合は繰り返す
 		while(flag == false);
 		
+		scanner.close();
+		
 		// 勝つまでにかかった回数を出力
 		System.out.println("勝つまでにかかった合計回数は" + count+ "回です");
 		
-		
+
+
+
 	}
+
 }
 
 
