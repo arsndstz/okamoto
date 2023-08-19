@@ -8,7 +8,7 @@ public class Qes_5 {
 		
 		// for文を利用して下記の通りに出力してください。
 		for(int i = 1; i < 10; i ++) {
-			for(int j = 11; j < 21; j ++) {
+			for(int j = 1; j < 21; j ++) {
 				int kuku = i * j;
 				
 				// 3桁未満の場合0埋めする
