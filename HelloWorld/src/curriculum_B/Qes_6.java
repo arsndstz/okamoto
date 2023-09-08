@@ -9,6 +9,7 @@ public class Qes_6 {
 // 入力した商品の残り台数が出力されるシステムを下記の条件で作成してください
 // ・拡張for文・Switch文・条件演算子を使用すること　※普通のif文は使用不可
 // ・Switch文内でテレビとディスプレイは続けて書くようにしてください、条件演算子で出力される値を変更してください
+// ・テレビとディスプレイは同じ商品扱いとし、ディスプレイが出た場合は最大個数の11個からランダムで出た数字を引いて出力してください 
 // ・例：テレビと受け取った場合、→「テレビの残り台数は〇〇台です」※〇〇はランダムで出た数字
 // ・入力された値は「、」区切りで指定してください
 // ・そのほかの値が入力された場合下記を出力されるようにしてください
@@ -41,6 +42,7 @@ public class Qes_6 {
 		// 残りの台数をランダムで決める
 		int remaining = (int)Math.floor( Math.random() * 12 );
 		System.out.println("\n");
+		boolean flag = false;
 		
 		switch(str) {
 		case "パソコン":
@@ -58,16 +60,14 @@ public class Qes_6 {
 		case "加湿器":
 			System.out.println("加湿器の残り台数は" + remaining + "台です");
 			break;
-		case "テレビ":
-			System.out.println("テレビの残り台数は" + remaining + "台です");
-			break;
+		case "テレビ": flag = true;
 		case "ディスプレイ":
-			System.out.println("ディスプレイの残り台数は" + remaining + "台です");
+			System.out.println(flag == true ? "テレビの残り台数は" + remaining + "台です" : "ディスプレイの残り台数は" + (11 - remaining) + "台です");
 			break;
 		default:
 			System.out.println("『" + str + "』は指定の商品ではありません");
 		}
-	}	
+	}
 	
 	scanner.close();
 	
